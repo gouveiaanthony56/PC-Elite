@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Hardware para PC</title>
+    <style>
+         body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url(Teste.webp); /* Substitua pelo caminho da sua imagem */
+            background-size: cover; /* Faz com que a imagem cubra toda a área */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Impede a repetição da imagem */
+        }
+        /* Reset básico e estilo geral */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        header {
+            position: relative;
+        }
+        footer {
+            position: relative;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro com transparência */
+            color: white; /* Cor do texto no rodapé */
+            text-align: center;
+            padding: 10px;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro com transparência */
+            color: white; /* Cor do texto no cabeçalho */
+            padding: 20px;
+            text-align: center;
+        }
+        .main-content h2 {
+            font-size: 1em; /* Tamanho da fonte para o título principal */
+
+        /* Menu Hambúrguer */
+        .menu-hamburguer {
+            display: none;
+        }
+        .menu-hamburguer input {
+            display: none;
+        }
+        .menu-hamburguer label {
+            display: block;
+            width: 40px;
+            height: 30px;
+            background: #333;
+            cursor: pointer;
+            position: relative;
+        }
+        .menu-hamburguer label::before, 
+        .menu-hamburguer label::after,
+        .menu-hamburguer label div {
+            content: '';
+            display: block;
+            height: 5px;
+            width: 30px;
+            background: white;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        .menu-hamburguer label::before {
+            top: 5px;
+        }
+        .menu-hamburguer label::after {
+            bottom: 5px;
+        }
+        .menu-hamburguer label div {
+            top: 15px;
+        }
+        .menu-hamburguer input:checked + .menu-content {
+            display: block;
+        }
+        .menu-hamburguer input:checked + .menu-content {
+            display: block;
+        }
+        .menu-content {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background: #333;
+            width: 100%;
+            text-align: center;
+        }
+        .menu-content a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+        }
+        .menu-content a:hover {
+            background: #111;
+        }
+
+        /* Menu Cascata */
+        .menu {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .menu a:hover {
+            background-color: #111;
+        }
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn {
+            font-size: 16px;  
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: #333;
+            cursor: pointer;
+        }
+        .dropdown:hover .dropbtn {
+            background-color: #111;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            display: none;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+        .dropdown-content .submenu {
+            left: 100%;
+            top: 0;
+        }
+        .dropdown-content .submenu a {
+            padding: 12px 16px;
+        }
+        .dropdown-content:hover .submenu {
+            display: block;
+        }
+
+        /* Estilo do conteúdo principal */
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .product img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .product h4 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Bem-vindo à ELITE PC</h1>
+        <div class="menu-hamburguer">
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle">
+                <div></div>
+            </label>
+            <div class="menu-content">
+                <a href="#">Home</a>
+                <a href="#">Produtos</a>
+                <a href="#">Sobre Nós</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Cascata -->
+    <div class="menu">
+        <a href="#">Home</a>
+        <div class="dropdown">
+            <div class="dropdown-content">
+                <a href="#">Componentes</a>
+                <div class="dropdown-content submenu">
+                    <a href="#">Processadores</a>
+                    <a href="#">Placas-Mãe</a>
+                    <a href="#">Memória RAM</a>
+                    <a href="#">Placas de Vídeo</a>
+                </div>
+            </div>
+        </div>
+        <a href="#">Sobre Nós</a>
+        <a href="#">Contato</a>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="content">
+        <h2>Explore nossos produtos!</h2>
+        <p>Encontre os melhores componentes e acessórios para o seu PC.</p>
+        <img src="Empresa.avif" alt="Imagem da Loja">
+
+        <h3>Processadores</h3>
+        <div class="product">
+            <img src="R7.webp" height="200" width="200" alt="Processador 1">
+            <div>
+                <h4>Ryzen 7 5700x3D</h4>
+                <p>Desfrute de velocidades supersônicas com 8 núcleos e 16 threads de processamento, prontos para enfrentar os títulos mais desafiadores. Frequência base de 3,0GHz e boost dinâmico de até 4,1GHz para eliminar qualquer engasgo.
+                    Jogue por horas sem se preocupar. O TDP de 105W garante alto desempenho sem consumo excessivo de energia.</p>
+            </div>
+        </div>
+        <div class="product">
+            <img src="R7 5.jpg" height="200" width="200" alt="Processador 2">
+            <div>
+                <h4>Ryzen 7 5800x3d</h4>
+                <p>Quando você tem a arquitetura de processador de desktop mais avançada do mundo para jogadores e criadores de conteúdo, as possibilidades são infinitas. Esteja você jogando os jogos mais recentes, projetando o próximo prédio ou processando dados, você precisa de um processador poderoso que possa lidar com tudo - e muito mais.</p>
+            </div>
+        </div>
+
+        <h3>Placas-Mãe</h3>
+        <div class="product">
+            <img src="pm.webp" height="200" width="200" alt="Placa-Mãe 1">
+            <div>
+                <h4>B550M AORUS ELITE</h4>
+                <p>libere todo o potencial dos processadores AMD Ryzen de 3ª e 4ª geração com a placa-mãe Gigabyte B550M Aorus Elite. Projetada para oferecer desempenho excepcional, ela conta com recursos avançados como VRM digital de alta qualidade, slots DDR4 de alta velocidade, e conectividade ultrarrápida. Ideal para gamers que buscam uma plataforma sólida para construir um PC poderoso e personalizável.</p>
+            </div>
+        </div>
+        <div class="product">
+            <img src="Elite.jpg" height="200" width="200" alt="Placa-Mãe 2">
+            <div>
+                <h4>B650 AORUS AMD AM5</h4>
+                <p>Desempenho inigualável
+                    Com as rápidas mudanças tecnológicas, a gigabyte sempre segue as últimas tendências e oferece aos clientes recursos avançados e tecnologias mais recentes. As placas-mãe gigabyte são equipadas com soluções de energia atualizadas, padrões de armazenamento mais recentes e conectividade excepcional para permitir desempenho otimizado para jogos.</p>
+            </div>
+        </div>
+        <h3>Memória RAM</h3>
+        <div class="product">
+            <img src="Fury.jpeg"  height="200" width="200" alt="Memória RAM 1">
+            <div>
+                <h4>Memória RAM Kingston Fury Beast</h4>
+                <p> A memória Kingston Fury Beast DDR4 RGB faz o overclock automático para a especificação de maior performance do módulo que seja suportada pelo sistema, e está pronto para Intel XMP e AMD Ryzen.</p>
+            </div>
+        </div>
+        <div class="product">
+            <img src="XPG.webp"  height="200" width="200" alt="Memória RAM 2">
+            <div>
+                <h4>Memoria Gamer Adata Xpg</h4>
+                <p>RAM DE ALTA QUALIDADE PARA ALTAS DURABILIDADE
+                    O SPECTRIX D35G passou por rigorosos procedimentos de seleção e triagem, passando por testes de confiabilidade e compatibilidade e oferece um produto forte e durável que simboliza a mais alta qualidade!</p>
+            </div>
+        </div>
+
+        <h3>Placas de Vídeo</h3>
+        <div class="product">
+            <img src="RX.jpg"  height="200" width="200" alt="Placa de Vídeo 1">
+            <div>
+                <h4> RX 7900 </h4>
+                <p>A Câmara de Vapor é montada em contato com a superfície do chip principal e da memória. Como toda a área transfere calor na mesma taxa, o módulo Vapor-X foi projetado para operar com mais eficiência do que um dissipador de calor de cobre na remoção de calor. Ao ganhar calor, a fonte de calor é empurrada para os pavios de vaporização para iniciar o processo de dissipação de calor.</p>
+            </div>
+        </div>
+        <div class="product">
+            <img src="RTX.jpeg" height="200" width="200" alt="Placa de Vídeo 2">
+            <div>
+                <h4>RTX 4090</h4>
+                <p>Desempenho e eficiência de energia até 2x, Núcleos tensores de 4ª geração: desempenho de IA até 2X, Núcleos RT de 3ª Geração: Desempenho de rastreamento de raios até 2X, Ventiladores de tecnologia axial ampliados para 23% mais fluxo de ar.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 ELITE PC. Todos os direitos reservados.</p>
+        <p>Desenvolvido por Anthony e Felipe. </p>
+    </footer>
+</body>
+</html>
